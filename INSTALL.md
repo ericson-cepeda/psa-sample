@@ -1,22 +1,20 @@
-﻿Instalación del proveedor de oauth2
-	Subir el oauth-prov.war en un tomcat 6+ con un JDK 6+
-	
-Instalación del consumidor de oauth2
-	Se recomienda crear un virtualenv y ejecutar los comandos de instalación con este activo
-	En una consola ir a la carpeta raíz oauth2ClientPy3 y ejecutar:
-		pip install -r requirements.txt
-		python manage.py runserver
-		
-		
-Probar:
-	En el explorador activar la consola
-	ir a http://127.0.0.1:8000/login
-	Hacer click en Iniciar con oauth2test
-		oauth2ClientPy3 redirecciona a oauth-prov enviando el state
-		se obtiene el token de acceso
-		Se inicia sesión y aparece la página http://127.0.0.1:8000/main
-		
-	Si se activó la consola del explorador, en la pestaña Red se verá lo siguiente:
+**Installation from the oauth2 supplier**
+Upload the oauth-prov.war on a tomcat 6 + with a JDK 6
+
+**Oauth2 consumer installation**
+Please create a virtualenv and run Setup with this active commands. In a console go to the root folder oauth2ClientPy3 and run:
+- PIP install - r requirements.txt
+- Python manage.py runserver
+
+
+**Test:**
+	- In the browser to activate the console go to http://127.0.0.1: 8000/login
+	- Click on start with oauth2test
+		- oauth2ClientPy3 redirects to oauth-prov by sending the state
+ 		- Gets the access token
+		- Session begins and http://127.0.0.1 page appears: 8000/main
+
+If activated the browser console, on the tab network will look as follows:
 	
 	┌───────────┬────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 	│ RESPUESTA │ METODO │ URL                                                                                                                                                                                 │

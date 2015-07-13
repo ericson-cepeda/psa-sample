@@ -1,0 +1,8 @@
+*.pyc
+ekogui/settings/local.py
+media/*
+*.db
+.idea/
+.DS_Store
+*.rdb
+*.log
