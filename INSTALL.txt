@@ -1,0 +1,30 @@
+﻿Instalación del proveedor de oauth2
+	Subir el oauth-prov.war en un tomcat 6+ con un JDK 6+
+	
+Instalación del consumidor de oauth2
+	Se recomienda crear un virtualenv y ejecutar los comandos de instalación con este activo
+	En una consola ir a la carpeta raíz oauth2ClientPy3 y ejecutar:
+		pip install -r requirements.txt
+		python manage.py runserver
+		
+		
+Probar:
+	En el explorador activar la consola
+	ir a http://127.0.0.1:8000/login
+	Hacer click en Iniciar con oauth2test
+		oauth2ClientPy3 redirecciona a oauth-prov enviando el state
+		se obtiene el token de acceso
+		Se inicia sesión y aparece la página http://127.0.0.1:8000/main
+		
+	Si se activó la consola del explorador, en la pestaña Red se verá lo siguiente:
+	
+	┌───────────┬────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+	│ RESPUESTA │ METODO │ URL                                                                                                                                                                                 │
+	├───────────┼────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+	│ 200 OK    │  GET   │ "http://127.0.0.1:8000/login"                                                                                                                                                       │
+	│ 302 FOUND │  GET   │ "http://127.0.0.1:8000/login/oauth2test/?next=/main"                                                                                                                                │
+	│ 302 FOUND │  GET   │ "http://127.0.0.1:8080/oauth-prov/AuthEndpoint?response_type=code&client_id=TestKey&redirect_uri=http://127.0.0.1:8000/complete/oauth2test/&state=vkTqtm0EsOj8E5oTDg5bGMabIgl172A0" │
+	│ 302 FOUND │  GET   │ "http://127.0.0.1:8000/complete/oauth2test/?state=vkTqtm0EsOj8E5oTDg5bGMabIgl172A0&code=f1b7f3f83aff12a9ad2c0eb2ca289992"                                                           │
+	│ 200 OK    │  GET   │ "http://127.0.0.1:8000/main"                                                                                                                                                        │
+	└───────────┴────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘	
+	
